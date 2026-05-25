@@ -1,23 +1,23 @@
+"use client";
+
+import Link from "next/link";
+import { auth } from "@/lib/firebase";
+import { signOut } from "firebase/auth";
+
 export default function Sidebar() {
   return (
-    <aside className="w-64 bg-zinc-950 p-6 border-r border-zinc-800">
-      <h2 className="text-2xl font-bold text-green-500 mb-8">
-        Cloud Gaming
-      </h2>
+    <div style={{ width: 200, padding: 20 }}>
+      <h2>Menu</h2>
 
-      <div className="space-y-4">
-        <button className="block w-full text-left hover:text-green-400">
-          Home
-        </button>
+      <Link href="/">Home</Link><br />
+      <Link href="/login">Login</Link><br />
 
-        <button className="block w-full text-left hover:text-green-400">
-          Library
-        </button>
-
-        <button className="block w-full text-left hover:text-green-400">
-          Settings
-        </button>
-      </div>
-    </aside>
+      <button
+        onClick={() => signOut(auth)}
+        style={{ marginTop: 20 }}
+      >
+        Logout
+      </button>
+    </div>
   );
 }
