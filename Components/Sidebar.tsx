@@ -1,23 +1,23 @@
 "use client";
 
 import Link from "next/link";
-import { auth } from "@/lib/firebase";
-import { signOut } from "firebase/auth";
 
 export default function Sidebar() {
   return (
-    <div style={{ width: 200, padding: 20 }}>
-      <h2>Menu</h2>
+    <div
+      style={{
+        width: 260,
+        background: "#0f1624",
+        padding: 20,
+        borderRight: "1px solid #1f2a44",
+      }}
+    >
+      <h2 style={{ marginBottom: 30 }}>Cloud Gaming</h2>
 
-      <Link href="/">Home</Link><br />
-      <Link href="/login">Login</Link><br />
-
-      <button
-        onClick={() => signOut(auth)}
-        style={{ marginTop: 20 }}
-      >
-        Logout
-      </button>
+      <nav style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+        <Link href="/">🏠 Home</Link>
+        <Link href="/login">🔐 Login</Link>
+      </nav>
     </div>
   );
 }
